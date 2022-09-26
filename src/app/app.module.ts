@@ -44,5 +44,8 @@ import { PlaceholderDirective } from "./shared/placeholder/placeholder.directive
 	imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
 	providers: [ShoppingListService, RecipeService, {provide: HTTP_INTERCEPTORS, useClass : AuthInterceptorService, multi: true}],
 	bootstrap: [AppComponent],
+	entryComponents: [
+		AlertComponent
+	]
 })
 export class AppModule {}
