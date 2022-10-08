@@ -8,8 +8,6 @@ import { LoggingService } from "./logging.service";
 	styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
-	// loadedFeature = "recipe";
-	// title = "recipe-book";
 
 	constructor(private authService: AuthService, private loggingService : LoggingService) {
 

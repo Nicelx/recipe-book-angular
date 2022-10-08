@@ -10,18 +10,8 @@ import { CoreModule } from "./core.module";
 import { LoggingService } from "./logging.service";
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		HeaderComponent,
-	],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		HttpClientModule,
-		SharedModule,
-		CoreModule,
-	],
+	declarations: [AppComponent, HeaderComponent],
+	imports: [BrowserModule, AppRoutingModule, HttpClientModule, SharedModule, CoreModule],
 	bootstrap: [AppComponent],
-	// providers: [LoggingService]
 })
 export class AppModule {}
