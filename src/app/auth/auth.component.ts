@@ -36,7 +36,6 @@ export class AuthComponent implements OnInit, OnDestroy {
 				this.showErrorAlert(this.error);
 			}
 		});
-
 	}
 
 	onSwitchMode() {
@@ -52,9 +51,6 @@ export class AuthComponent implements OnInit, OnDestroy {
 
 		const { email, password } = form.value;
 
-		this.isLoading = true;
-		let authObs: Observable<AuthResponseData>;
-
 		if (this.isLoginMode) {
 			// authObs = this.authService.login(email, password);
 			this.store.dispatch(
@@ -64,23 +60,14 @@ export class AuthComponent implements OnInit, OnDestroy {
 				})
 			);
 		} else {
-			authObs = this.authService.signup(email, password);
+			this.store.dispatch(
+				new AuthActions.SignupStart({
+					email,
+					password,
+				})
+			);
 		}
 
-		// authObs.subscribe(
-		// 	(resData) => {
-		// 		this.isLoading = false;
-		// 		this.router.navigate(["/recipes"]);
-		// 		console.log("res data", resData);
-		// 	},
-		// 	(errorMessage) => {
-		// 		this.isLoading = false;
-
-		// 		this.error = errorMessage;
-		// 		this.showErrorAlert(errorMessage);
-		// 		console.log(errorMessage);
-		// 	}
-		// );
 		form.reset();
 	}
 
