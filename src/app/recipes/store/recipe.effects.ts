@@ -4,8 +4,9 @@ import { HttpClient } from '@angular/common/http';
 
 import * as RecipesActions from './recipe.actions'
 import { Recipe } from '../recipe.model';
-import { Actions } from '@ngrx/effects';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class RecipeEffects {
 	@Effect()
 	fetchRecipes = this.actions$.pipe(
@@ -14,7 +15,7 @@ export class RecipeEffects {
 			return this.http
 			.get<Recipe[]>(
 				"https://angular-test-afd6e-default-rtdb.europe-west1.firebasedatabase.app/recipes.json"
-			)
+			) 
 		}),
 		map((recipes) => {
 			return recipes.map((recipe) => {
@@ -29,7 +30,7 @@ export class RecipeEffects {
 		})
 	)
 
-	constructor(private actions%: Actions, private http: HttpClient) {
+	constructor(private actions$: Actions, private http: HttpClient) {
 
 	}
 }
