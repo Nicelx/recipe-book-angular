@@ -29,6 +29,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit(): void {
+		console.log('init recipe edit')
 		this.route.params.subscribe((params: Params) => {
 			this.id = +params["id"];
 			this.editMode = params["id"] != null;

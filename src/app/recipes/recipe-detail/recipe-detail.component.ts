@@ -25,6 +25,7 @@ export class RecipeDetailComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		console.log('recipe detail component')
 		this.route.params
 			.pipe(
 				map((params) => {
@@ -46,15 +47,16 @@ export class RecipeDetailComponent implements OnInit {
 	}
 
 	onAddToShoppingList() {
-		// this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+		this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
 	}
 
 	onEditRecipe() {
-		this.router.navigate(["../", this.id, "edit"], { relativeTo: this.route });
+		console.log('onEditRecipe')
+		// this.router.navigate(["../", this.id, "edit"], { relativeTo: this.route });
+		this.router.navigate(['edit'] , {relativeTo: this.route})
 	}
 
 	onDeleteRecipe() {
-		// this.recipeService.deleteRecipe(this.id);
 		this.store.dispatch(new RecipesActions.DeleteRecipe(this.id))
 		this.router.navigate(["/recipes"]);
 	}
