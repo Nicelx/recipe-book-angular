@@ -25,6 +25,13 @@ export class RecipeDetailComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		try {
+
+		}
+		catch(e) {
+			console.log('recipe detail onInit')
+			throw (e)
+		}
 		console.log('recipe detail component')
 		this.route.params
 			.pipe(
