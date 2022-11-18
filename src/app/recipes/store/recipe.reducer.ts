@@ -28,7 +28,7 @@ export function recipeReducer(state = initialState, action: RecipesActions.Recip
 					...state.recipes[action.payload.index],
 					...action.payload.newRecipe,
 				};
-
+ 
 				const updatedRecipes = [...state.recipes];
 				updatedRecipes[action.payload.index] = updatedRecipe;
 
