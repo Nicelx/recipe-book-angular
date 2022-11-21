@@ -6,7 +6,6 @@ import { map, switchMap, take } from "rxjs/operators";
 import { of } from "rxjs";
 
 import { Recipe } from "./recipe.model";
-import { RecipeService } from "./recipe.service";
 import * as fromApp from "../store/app.reducer";
 import * as RecipesActions from "../recipes/store/recipe.actions";
 
